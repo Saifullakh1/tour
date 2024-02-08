@@ -3,9 +3,9 @@ from django.db import models
 
 class Tour(models.Model):
     class Currency(models.TextChoices):
-        som = "som"
-        dollar = "dollar"
-        euro = "euro"
+        som = "C"
+        dollar = "$"
+        euro = "€"
     title = models.CharField(
         max_length=250, verbose_name="Название"
     )
@@ -19,6 +19,15 @@ class Tour(models.Model):
     currency = models.CharField(
         max_length=100, choices=Currency.choices,
         default=Currency.som, verbose_name="Валюта"
+    )
+    duration = models.IntegerField(
+        default=0, verbose_name="Длительность тура"
+    )
+    location = models.CharField(
+        max_length=250, verbose_name="Локация"
+    )
+    person = models.IntegerField(
+        default=0, verbose_name="Количество людей"
     )
     created_at = models.DateField(
         auto_created=True, verbose_name="Дата создания"
