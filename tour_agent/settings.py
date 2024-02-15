@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'apps.tours',
     'apps.guides',
+    'apps.reviews'
 
 ]
 
