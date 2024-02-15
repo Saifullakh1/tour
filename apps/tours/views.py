@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from .models import Tour
+from apps.guides.models import Guide
 
 
 def index(request):
     tours = Tour.objects.all()
-    return render(request, 'tours/tour_list.html', {'tours': tours})
+    guides = Guide.objects.all()[:4]
+    return render(request, 'tours/tour_list.html', {'tours': tours, 'guides': guides})
 
 
 def tour_detail(request, id):

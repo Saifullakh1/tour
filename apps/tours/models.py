@@ -1,4 +1,5 @@
 from django.db import models
+from apps.guides.models import Guide
 
 
 class Tour(models.Model):
@@ -28,6 +29,11 @@ class Tour(models.Model):
     )
     person = models.IntegerField(
         default=0, verbose_name="Количество людей"
+    )
+    guides = models.ManyToManyField(
+        Guide,
+        related_name="tour_guides",
+        verbose_name="Гид"
     )
     created_at = models.DateField(
         auto_created=True, verbose_name="Дата создания"
